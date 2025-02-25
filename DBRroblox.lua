@@ -7,9 +7,9 @@ local DBR = Instance.new("ScreenGui")
 local Background = Instance.new("Frame")
 local Holder = Instance.new("Frame")
 local UIGridLayout = Instance.new("UIGridLayout")
-local ForceWiggle = Instance.new("TextLabel")
-local BlindKiller = Instance.new("TextLabel")
 local DashForwards = Instance.new("TextLabel")
+local BlindKillerButton = Instance.new("TextButton")
+local ForceWiggleButton = Instance.new("TextButton")
 
 --Properties:
 
@@ -42,36 +42,6 @@ UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIGridLayout.CellPadding = UDim2.new(0, 10, 0, 10)
 UIGridLayout.CellSize = UDim2.new(0.423000008, 0, 0.0710000023, 0)
 
-ForceWiggle.Name = "Force Wiggle"
-ForceWiggle.Parent = Holder
-ForceWiggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ForceWiggle.BackgroundTransparency = 0.900
-ForceWiggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ForceWiggle.BorderSizePixel = 0
-ForceWiggle.Position = UDim2.new(0.510736167, 0, 0.043524418, 0)
-ForceWiggle.Size = UDim2.new(0.423312873, 0, 0.0711252689, 0)
-ForceWiggle.Font = Enum.Font.Roboto
-ForceWiggle.Text = "Force Wiggle (Ctrl+L)"
-ForceWiggle.TextColor3 = Color3.fromRGB(1, 46, 85)
-ForceWiggle.TextScaled = true
-ForceWiggle.TextSize = 14.000
-ForceWiggle.TextWrapped = true
-
-BlindKiller.Name = "Blind Killer"
-BlindKiller.Parent = Holder
-BlindKiller.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-BlindKiller.BackgroundTransparency = 0.900
-BlindKiller.BorderColor3 = Color3.fromRGB(0, 0, 0)
-BlindKiller.BorderSizePixel = 0
-BlindKiller.Position = UDim2.new(0.510736167, 0, 0.043524418, 0)
-BlindKiller.Size = UDim2.new(0.423312873, 0, 0.0711252689, 0)
-BlindKiller.Font = Enum.Font.Roboto
-BlindKiller.Text = "Force Blind Killer    (Ctrl + F)"
-BlindKiller.TextColor3 = Color3.fromRGB(1, 46, 85)
-BlindKiller.TextScaled = true
-BlindKiller.TextSize = 14.000
-BlindKiller.TextWrapped = true
-
 DashForwards.Name = "Dash Forwards"
 DashForwards.Parent = Holder
 DashForwards.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -87,68 +57,35 @@ DashForwards.TextScaled = true
 DashForwards.TextSize = 14.000
 DashForwards.TextWrapped = true
 
+BlindKillerButton.Name = "Blind Killer Button"
+BlindKillerButton.Parent = Holder
+BlindKillerButton.BackgroundColor3 = Color3.fromRGB(131, 133, 136)
+BlindKillerButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BlindKillerButton.BorderSizePixel = 0
+BlindKillerButton.Size = UDim2.new(0, 200, 0, 50)
+BlindKillerButton.Font = Enum.Font.SourceSans
+BlindKillerButton.Text = "Force Blind Killer"
+BlindKillerButton.TextColor3 = Color3.fromRGB(1, 46, 85)
+BlindKillerButton.TextScaled = true
+BlindKillerButton.TextSize = 14.000
+BlindKillerButton.TextWrapped = true
+
+ForceWiggleButton.Name = "Force Wiggle Button"
+ForceWiggleButton.Parent = Holder
+ForceWiggleButton.BackgroundColor3 = Color3.fromRGB(131, 133, 136)
+ForceWiggleButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ForceWiggleButton.BorderSizePixel = 0
+ForceWiggleButton.Size = UDim2.new(0, 200, 0, 50)
+ForceWiggleButton.Font = Enum.Font.SourceSans
+ForceWiggleButton.Text = "Force My Wiggle"
+ForceWiggleButton.TextColor3 = Color3.fromRGB(1, 46, 85)
+ForceWiggleButton.TextScaled = true
+ForceWiggleButton.TextSize = 14.000
+ForceWiggleButton.TextWrapped = true
+
 -- Scripts:
 
-local function LGXRU_fake_script() -- ForceWiggle.Script 
-	local script = Instance.new('Script', ForceWiggle)
-
-	local UIS = game:GetService("UserInputService")
-	local Players = game:GetService("Players")
-	
-	local CtrlPressed = false
-	local Killer = nil
-	
-	local function SetKiller()
-		for _, plr in pairs(game.Players:GetPlayers()) do
-			if plr.Backpack.Scripts.Killer.Value == true then
-				Killer = plr
-				break
-			end
-		end
-	end
-	
-	UIS.InputBegan:Connect(function(key, e)
-		if key.KeyCode == Enum.KeyCode.LeftControl or key.KeyCode == Enum.KeyCode.RightControl then
-			CtrlPressed = true
-		elseif key.KeyCode == Enum.KeyCode.L and e then
-	        local count = 0
-	        
-			SetKiller()
-	
-			wait(1)
-	        
-	        if not Killer then
-	            print("Error: Killer team not found or players")
-	            return
-	        end
-	
-	        repeat
-	            task.wait()
-				count = count + 1
-				
-				local args = {
-					[1] = "Wiggle",
-					[2] = Killer
-				}
-	
-				game:GetService("ReplicatedStorage"):FindFirstChild("RemoteEvents"):FindFirstChild("Server_Event"):FireServer(unpack(args))
-	        until count >= 200
-	        
-			CtrlPressed = false
-	    end
-	end)
-	
-	spawn(function()
-	    while true do
-	        task.wait(3)
-			CtrlPressed = false
-	    end
-	end)
-	
-	
-end
-coroutine.wrap(LGXRU_fake_script)()
-local function PLBM_fake_script() -- Holder.Script 
+local function YDPWQRL_fake_script() -- Holder.Script 
 	local script = Instance.new('Script', Holder)
 
 	local UIS = game:GetService("UserInputService")
@@ -185,60 +122,8 @@ local function PLBM_fake_script() -- Holder.Script
 		end
 	end)
 end
-coroutine.wrap(PLBM_fake_script)()
-local function EBGDUYP_fake_script() -- BlindKiller.Script 
-	local script = Instance.new('Script', BlindKiller)
-
-	local UIS = game:GetService("UserInputService")
-	local Players = game:GetService("Players")
-	
-	local CtrlPressed = false
-	local Killer = nil
-	
-	local function SetKiller()
-		for _, plr in pairs(game.Players:GetPlayers()) do
-			if plr.Backpack.Scripts.Killer.Value == true then
-				Killer = plr
-				break
-			end
-		end
-	end
-	
-	UIS.InputBegan:Connect(function(key, e)
-		if key.KeyCode == Enum.KeyCode.LeftControl or key.KeyCode == Enum.KeyCode.RightControl then
-			CtrlPressed = true
-		elseif key.KeyCode == Enum.KeyCode.F and e then
-			SetKiller()
-	
-			wait(1)
-			
-			local args = {
-				[1] = "StartBlinding",
-				[2] = Killer.Character.Flash_Zone
-			}
-	
-			game:GetService("Players").LocalPlayer.Backpack.Scripts.GlobalSurvivor.Action.UseItem.Flashlight.Flashlight:FireServer(unpack(args))
-	
-			wait(4)
-	
-			local args = {
-				[1] = "StopBlinding"
-			}
-	
-			game:GetService("Players").LocalPlayer.Backpack.Scripts.GlobalSurvivor.Action.UseItem.Flashlight.Flashlight:FireServer(unpack(args))
-	
-		end
-	end)
-	
-	spawn(function()
-		while true do
-			task.wait(3)
-			CtrlPressed = false
-		end
-	end)
-end
-coroutine.wrap(EBGDUYP_fake_script)()
-local function JDXGMZF_fake_script() -- DashForwards.Script 
+coroutine.wrap(YDPWQRL_fake_script)()
+local function FUGJ_fake_script() -- DashForwards.Script 
 	local script = Instance.new('Script', DashForwards)
 
 	local UIS = game:GetService("UserInputService")
@@ -255,8 +140,89 @@ local function JDXGMZF_fake_script() -- DashForwards.Script
 		end
 	end)
 end
-coroutine.wrap(JDXGMZF_fake_script)()
-local function KZIS_fake_script() -- DBR.Script 
+coroutine.wrap(FUGJ_fake_script)()
+local function WWVSXGN_fake_script() -- BlindKillerButton.Script 
+	local script = Instance.new('Script', BlindKillerButton)
+
+	local Players = game:GetService("Players")
+	
+	local Killer = nil
+	
+	local function SetKiller()
+		for _, plr in pairs(game.Players:GetPlayers()) do
+			if plr.Backpack.Scripts.Killer.Value == true then
+				Killer = plr
+				break
+			end
+		end
+	end
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		SetKiller()
+	
+		task.wait(1)
+	
+		local args = {
+			[1] = "StartBlinding",
+			[2] = Killer.Character.Flash_Zone
+		}
+	
+		game:GetService("Players").LocalPlayer.Backpack.Scripts.GlobalSurvivor.Action.UseItem.Flashlight.Flashlight:FireServer(unpack(args))
+	
+		wait(4)
+	
+		local args = {
+			[1] = "StopBlinding"
+		}
+	
+		game:GetService("Players").LocalPlayer.Backpack.Scripts.GlobalSurvivor.Action.UseItem.Flashlight.Flashlight:FireServer(unpack(args))
+	
+	end)
+end
+coroutine.wrap(WWVSXGN_fake_script)()
+local function VJMOBEU_fake_script() -- ForceWiggleButton.Script 
+	local script = Instance.new('Script', ForceWiggleButton)
+
+	local Players = game:GetService("Players")
+	
+	local Killer = nil
+	
+	local function SetKiller()
+		for _, plr in pairs(game.Players:GetPlayers()) do
+			if plr.Backpack.Scripts.Killer.Value == true then
+				Killer = plr
+				break
+			end
+		end
+	end
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		local count = 0
+	
+		SetKiller()
+	
+		task.wait(1)
+	
+		if not Killer then
+			print("Error: Killer team not found or players")
+			return
+		end
+	
+		repeat
+			task.wait()
+			count = count + 1
+	
+			local args = {
+				[1] = "Wiggle",
+				[2] = Killer
+			}
+	
+			game:GetService("ReplicatedStorage"):FindFirstChild("RemoteEvents"):FindFirstChild("Server_Event"):FireServer(unpack(args))
+		until count >= 200
+	end)
+end
+coroutine.wrap(VJMOBEU_fake_script)()
+local function XKDESYS_fake_script() -- DBR.Script 
 	local script = Instance.new('Script', DBR)
 
 	local UIS = game:GetService("UserInputService")
@@ -267,4 +233,4 @@ local function KZIS_fake_script() -- DBR.Script
 		end
 	end)
 end
-coroutine.wrap(KZIS_fake_script)()
+coroutine.wrap(XKDESYS_fake_script)()
