@@ -83,7 +83,7 @@ DashForwards.TextWrapped = true
 
 -- Scripts:
 
-local function DTEC_fake_script() -- Holder.Script 
+local function KBDTEOL_fake_script() -- Holder.Script 
 	local script = Instance.new('Script', Holder)
 
 	local UIS = game:GetService("UserInputService")
@@ -120,13 +120,14 @@ local function DTEC_fake_script() -- Holder.Script
 		end
 	end)
 end
-coroutine.wrap(DTEC_fake_script)()
-local function XNVNUTA_fake_script() -- BlindKillerButton.Script 
+coroutine.wrap(KBDTEOL_fake_script)()
+local function TEVZ_fake_script() -- BlindKillerButton.Script 
 	local script = Instance.new('Script', BlindKillerButton)
 
 	local Players = game:GetService("Players")
 	
 	local Killer = nil
+	local plr = Players.LocalPlayer
 	
 	local function SetKiller()
 		for _, plr in pairs(game.Players:GetPlayers()) do
@@ -140,14 +141,16 @@ local function XNVNUTA_fake_script() -- BlindKillerButton.Script
 	script.Parent.MouseButton1Click:Connect(function()
 		SetKiller()
 	
-		task.wait(1)
+		wait(1)
+		
+		if not Killer then print("Killer No Select") return end
 	
 		local args = {
 			[1] = "StartBlinding",
 			[2] = Killer.Character.Flash_Zone
 		}
 	
-		game:GetService("Players").LocalPlayer.Backpack.Scripts.GlobalSurvivor.Action.UseItem.Flashlight.Flashlight:FireServer(unpack(args))
+		plr.Backpack.Scripts.GlobalSurvivor.Action.UseItem.Flashlight.Flashlight:FireServer(unpack(args))
 	
 		wait(4)
 	
@@ -155,12 +158,12 @@ local function XNVNUTA_fake_script() -- BlindKillerButton.Script
 			[1] = "StopBlinding"
 		}
 	
-		game:GetService("Players").LocalPlayer.Backpack.Scripts.GlobalSurvivor.Action.UseItem.Flashlight.Flashlight:FireServer(unpack(args))
+		plr.Backpack.Scripts.GlobalSurvivor.Action.UseItem.Flashlight.Flashlight:FireServer(unpack(args))
 	
 	end)
 end
-coroutine.wrap(XNVNUTA_fake_script)()
-local function AEJH_fake_script() -- ForceWiggleButton.Script 
+coroutine.wrap(TEVZ_fake_script)()
+local function NQGQS_fake_script() -- ForceWiggleButton.Script 
 	local script = Instance.new('Script', ForceWiggleButton)
 
 	local Players = game:GetService("Players")
@@ -201,8 +204,8 @@ local function AEJH_fake_script() -- ForceWiggleButton.Script
 		until count >= 200
 	end)
 end
-coroutine.wrap(AEJH_fake_script)()
-local function JDNTERV_fake_script() -- DashForwards.Script 
+coroutine.wrap(NQGQS_fake_script)()
+local function KFWIP_fake_script() -- DashForwards.Script 
 	local script = Instance.new('Script', DashForwards)
 
 	local Players = game:GetService("Players")
@@ -214,8 +217,8 @@ local function JDNTERV_fake_script() -- DashForwards.Script
 		Character:PivotTo(Character:GetPivot() * CFrame.new(0, 0, -8))
 	end)
 end
-coroutine.wrap(JDNTERV_fake_script)()
-local function GNGQEPF_fake_script() -- DBR.Script 
+coroutine.wrap(KFWIP_fake_script)()
+local function INSCZZG_fake_script() -- DBR.Script 
 	local script = Instance.new('Script', DBR)
 
 	local UIS = game:GetService("UserInputService")
@@ -226,4 +229,4 @@ local function GNGQEPF_fake_script() -- DBR.Script
 		end
 	end)
 end
-coroutine.wrap(GNGQEPF_fake_script)()
+coroutine.wrap(INSCZZG_fake_script)()
