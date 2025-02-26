@@ -83,7 +83,7 @@ UnhookAll.TextWrapped = true
 
 -- Scripts:
 
-local function HWJETGB_fake_script() -- Holder.Script 
+local function GUFJ_fake_script() -- Holder.Script 
 	local script = Instance.new('Script', Holder)
 
 	local UIS = game:GetService("UserInputService")
@@ -120,8 +120,8 @@ local function HWJETGB_fake_script() -- Holder.Script
 		end
 	end)
 end
-coroutine.wrap(HWJETGB_fake_script)()
-local function IKME_fake_script() -- BlindKillerButton.Script 
+coroutine.wrap(GUFJ_fake_script)()
+local function XFMQW_fake_script() -- BlindKillerButton.Script 
 	local script = Instance.new('Script', BlindKillerButton)
 
 	local Players = game:GetService("Players")
@@ -162,8 +162,8 @@ local function IKME_fake_script() -- BlindKillerButton.Script
 	
 	end)
 end
-coroutine.wrap(IKME_fake_script)()
-local function ONVH_fake_script() -- ForceWiggleButton.Script 
+coroutine.wrap(XFMQW_fake_script)()
+local function MLVFDTL_fake_script() -- ForceWiggleButton.Script 
 	local script = Instance.new('Script', ForceWiggleButton)
 
 	local Players = game:GetService("Players")
@@ -204,8 +204,8 @@ local function ONVH_fake_script() -- ForceWiggleButton.Script
 		until count >= 200
 	end)
 end
-coroutine.wrap(ONVH_fake_script)()
-local function SFBM_fake_script() -- UnhookAll.Script 
+coroutine.wrap(MLVFDTL_fake_script)()
+local function BCLJ_fake_script() -- UnhookAll.Script 
 	local script = Instance.new('Script', UnhookAll)
 
 	local function UnhookEvent(Plr, Hook)
@@ -229,8 +229,8 @@ local function SFBM_fake_script() -- UnhookAll.Script
 		end
 	end)
 end
-coroutine.wrap(SFBM_fake_script)()
-local function ICBYLQX_fake_script() -- Background.Heal Thingy 
+coroutine.wrap(BCLJ_fake_script)()
+local function LVWEMK_fake_script() -- Background.Heal Thingy 
 	local script = Instance.new('Script', Background)
 
 	local function ProgressRemote(player)
@@ -300,13 +300,15 @@ local function ICBYLQX_fake_script() -- Background.Heal Thingy
 	end
 	
 	spawn(function()
-		while wait(2) do
+		local Buttons = {}
+		
+		while wait(1) do
 			-- Clear old buttons
-			for _, button in pairs(script.Parent.Holder:GetChildren()) do
-				if button:IsA("TextButton") then
-					button:Destroy()
-				end
+			for _, button in pairs(Buttons) do
+				button:Destroy()
 			end
+			
+			Buttons = {}
 	
 			-- Create buttons for players who need healing
 			for _, plr in pairs(game.Players:GetPlayers()) do
@@ -317,15 +319,17 @@ local function ICBYLQX_fake_script() -- Background.Heal Thingy
 					Button.BackgroundColor3 = Color3.new(0.513725, 0.521569, 0.533333)
 					Button.Text = "Heal " .. plr.Name
 					Button.Parent = script.Parent.Holder
-	
+					
+					table.insert(Buttons, Button)
+					
 					Script1Function(Button, plr)
 				end
 			end
 		end
 	end)
 end
-coroutine.wrap(ICBYLQX_fake_script)()
-local function LKKXS_fake_script() -- DBR.Script 
+coroutine.wrap(LVWEMK_fake_script)()
+local function SVKLDZ_fake_script() -- DBR.Script 
 	local script = Instance.new('Script', DBR)
 
 	local UIS = game:GetService("UserInputService")
@@ -336,4 +340,4 @@ local function LKKXS_fake_script() -- DBR.Script
 		end
 	end)
 end
-coroutine.wrap(LKKXS_fake_script)()
+coroutine.wrap(SVKLDZ_fake_script)()
