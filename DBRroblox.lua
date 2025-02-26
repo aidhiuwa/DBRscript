@@ -83,7 +83,7 @@ UnhookAll.TextWrapped = true
 
 -- Scripts:
 
-local function FMZU_fake_script() -- Holder.Script 
+local function HWJETGB_fake_script() -- Holder.Script 
 	local script = Instance.new('Script', Holder)
 
 	local UIS = game:GetService("UserInputService")
@@ -120,8 +120,8 @@ local function FMZU_fake_script() -- Holder.Script
 		end
 	end)
 end
-coroutine.wrap(FMZU_fake_script)()
-local function NDPI_fake_script() -- BlindKillerButton.Script 
+coroutine.wrap(HWJETGB_fake_script)()
+local function IKME_fake_script() -- BlindKillerButton.Script 
 	local script = Instance.new('Script', BlindKillerButton)
 
 	local Players = game:GetService("Players")
@@ -162,8 +162,8 @@ local function NDPI_fake_script() -- BlindKillerButton.Script
 	
 	end)
 end
-coroutine.wrap(NDPI_fake_script)()
-local function BEMXI_fake_script() -- ForceWiggleButton.Script 
+coroutine.wrap(IKME_fake_script)()
+local function ONVH_fake_script() -- ForceWiggleButton.Script 
 	local script = Instance.new('Script', ForceWiggleButton)
 
 	local Players = game:GetService("Players")
@@ -204,8 +204,8 @@ local function BEMXI_fake_script() -- ForceWiggleButton.Script
 		until count >= 200
 	end)
 end
-coroutine.wrap(BEMXI_fake_script)()
-local function EXDGDTM_fake_script() -- UnhookAll.Script 
+coroutine.wrap(ONVH_fake_script)()
+local function SFBM_fake_script() -- UnhookAll.Script 
 	local script = Instance.new('Script', UnhookAll)
 
 	local function UnhookEvent(Plr, Hook)
@@ -229,8 +229,103 @@ local function EXDGDTM_fake_script() -- UnhookAll.Script
 		end
 	end)
 end
-coroutine.wrap(EXDGDTM_fake_script)()
-local function PMIFJA_fake_script() -- DBR.Script 
+coroutine.wrap(SFBM_fake_script)()
+local function ICBYLQX_fake_script() -- Background.Heal Thingy 
+	local script = Instance.new('Script', Background)
+
+	local function ProgressRemote(player)
+		local args = {
+			[1] = {
+				["D9v8"] = {
+					["C21"] = player.Backpack.Scripts.values.HealProgress,
+					["C20"] = "1000", -- progress /1000
+					["C22"] = "S101"
+				},
+				["Bbh1O"] = {}, --[[DUPLICATE]]
+				["Dvh1O"] = {}, --[[DUPLICATE]]
+				["Dbh1O"] = {}, --[[DUPLICATE]]
+				["Dhv8"] = {} --[[DUPLICATE]]
+			}
+		}
+	
+		args[1].Bbh1O = args[1].D9v8
+		args[1].Dvh1O = args[1].D9v8
+		args[1].Dbh1O = args[1].D9v8
+		args[1].Dhv8 = args[1].D9v8
+		game:GetService("ReplicatedStorage"):FindFirstChild("RemoteEvents"):FindFirstChild("NewPropertie"):FireServer(unpack(args))
+	end
+	
+	local function StartHealProcess(player)
+		local args = {
+			[1] = player.Name, -- player
+			[2] = "Normal" -- keep like this
+		}
+	
+		game:GetService("ReplicatedStorage"):FindFirstChild("RemoteEvents"):FindFirstChild("ClientToServer"):FindFirstChild("HealingEvent"):FireServer(unpack(args))
+	end
+	
+	local function HealAnimation(player)
+		local args = {
+			[1] = {
+				["D9v8"] = {
+					["C21"] = player.Backpack.Scripts.values.Action, -- FIXED PLAYER REFERENCE
+					["C20"] = "GettingHealing",
+					["C22"] = "S101"
+				},
+				["Bbh1O"] = {}, --[[DUPLICATE]]
+				["Dvh1O"] = {}, --[[DUPLICATE]]
+				["Dbh1O"] = {}, --[[DUPLICATE]]
+				["Dhv8"] = {} --[[DUPLICATE]]
+			}
+		}
+	
+		args[1].Bbh1O = args[1].D9v8
+		args[1].Dvh1O = args[1].D9v8
+		args[1].Dbh1O = args[1].D9v8
+		args[1].Dhv8 = args[1].D9v8
+		game:GetService("ReplicatedStorage"):FindFirstChild("RemoteEvents"):FindFirstChild("NewPropertie"):FireServer(unpack(args))
+	end
+	
+	local function Script1Function(button, player)
+		local Fired = false
+	
+		button.MouseButton1Click:Connect(function()
+			if not Fired then
+				Fired = true
+				ProgressRemote(player)
+				StartHealProcess(player)
+				HealAnimation(player)
+			end
+		end)
+	end
+	
+	spawn(function()
+		while wait(2) do
+			-- Clear old buttons
+			for _, button in pairs(script.Parent.Holder:GetChildren()) do
+				if button:IsA("TextButton") then
+					button:Destroy()
+				end
+			end
+	
+			-- Create buttons for players who need healing
+			for _, plr in pairs(game.Players:GetPlayers()) do
+				local scripts = plr:FindFirstChild("Backpack") and plr.Backpack:FindFirstChild("Scripts")
+				if scripts and not scripts.Killer.Value and scripts.values.HealthState.Value < 2 then
+					local Button = Instance.new("TextButton")
+					Button.TextScaled = true
+					Button.BackgroundColor3 = Color3.new(0.513725, 0.521569, 0.533333)
+					Button.Text = "Heal " .. plr.Name
+					Button.Parent = script.Parent.Holder
+	
+					Script1Function(Button, plr)
+				end
+			end
+		end
+	end)
+end
+coroutine.wrap(ICBYLQX_fake_script)()
+local function LKKXS_fake_script() -- DBR.Script 
 	local script = Instance.new('Script', DBR)
 
 	local UIS = game:GetService("UserInputService")
@@ -241,4 +336,4 @@ local function PMIFJA_fake_script() -- DBR.Script
 		end
 	end)
 end
-coroutine.wrap(PMIFJA_fake_script)()
+coroutine.wrap(LKKXS_fake_script)()
