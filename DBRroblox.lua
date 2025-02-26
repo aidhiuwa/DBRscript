@@ -83,7 +83,7 @@ UnhookAll.TextWrapped = true
 
 -- Scripts:
 
-local function GUFJ_fake_script() -- Holder.Script 
+local function AKZBG_fake_script() -- Holder.Script 
 	local script = Instance.new('Script', Holder)
 
 	local UIS = game:GetService("UserInputService")
@@ -120,8 +120,8 @@ local function GUFJ_fake_script() -- Holder.Script
 		end
 	end)
 end
-coroutine.wrap(GUFJ_fake_script)()
-local function XFMQW_fake_script() -- BlindKillerButton.Script 
+coroutine.wrap(AKZBG_fake_script)()
+local function ZITN_fake_script() -- BlindKillerButton.Script 
 	local script = Instance.new('Script', BlindKillerButton)
 
 	local Players = game:GetService("Players")
@@ -159,11 +159,10 @@ local function XFMQW_fake_script() -- BlindKillerButton.Script
 		}
 	
 		plr.Backpack.Scripts.GlobalSurvivor.Action.UseItem.Flashlight.Flashlight:FireServer(unpack(args))
-	
 	end)
 end
-coroutine.wrap(XFMQW_fake_script)()
-local function MLVFDTL_fake_script() -- ForceWiggleButton.Script 
+coroutine.wrap(ZITN_fake_script)()
+local function HRJAIXO_fake_script() -- ForceWiggleButton.Script 
 	local script = Instance.new('Script', ForceWiggleButton)
 
 	local Players = game:GetService("Players")
@@ -204,8 +203,8 @@ local function MLVFDTL_fake_script() -- ForceWiggleButton.Script
 		until count >= 200
 	end)
 end
-coroutine.wrap(MLVFDTL_fake_script)()
-local function BCLJ_fake_script() -- UnhookAll.Script 
+coroutine.wrap(HRJAIXO_fake_script)()
+local function LUBHI_fake_script() -- UnhookAll.Script 
 	local script = Instance.new('Script', UnhookAll)
 
 	local function UnhookEvent(Plr, Hook)
@@ -229,8 +228,8 @@ local function BCLJ_fake_script() -- UnhookAll.Script
 		end
 	end)
 end
-coroutine.wrap(BCLJ_fake_script)()
-local function LVWEMK_fake_script() -- Background.Heal Thingy 
+coroutine.wrap(LUBHI_fake_script)()
+local function DLBJTG_fake_script() -- Background.Heal Thingy 
 	local script = Instance.new('Script', Background)
 
 	local function ProgressRemote(player)
@@ -328,8 +327,8 @@ local function LVWEMK_fake_script() -- Background.Heal Thingy
 		end
 	end)
 end
-coroutine.wrap(LVWEMK_fake_script)()
-local function SVKLDZ_fake_script() -- DBR.Script 
+coroutine.wrap(DLBJTG_fake_script)()
+local function CLVIQUQ_fake_script() -- DBR.Script 
 	local script = Instance.new('Script', DBR)
 
 	local UIS = game:GetService("UserInputService")
@@ -340,4 +339,4 @@ local function SVKLDZ_fake_script() -- DBR.Script
 		end
 	end)
 end
-coroutine.wrap(SVKLDZ_fake_script)()
+coroutine.wrap(CLVIQUQ_fake_script)()
