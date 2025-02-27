@@ -89,7 +89,7 @@ BreakKiller.BorderColor3 = Color3.fromRGB(0, 0, 0)
 BreakKiller.BorderSizePixel = 0
 BreakKiller.Size = UDim2.new(0, 200, 0, 50)
 BreakKiller.Font = Enum.Font.SourceSans
-BreakKiller.Text = "Break Killer (4s)"
+BreakKiller.Text = "Break Killer (6s)"
 BreakKiller.TextColor3 = Color3.fromRGB(1, 46, 85)
 BreakKiller.TextScaled = true
 BreakKiller.TextSize = 14.000
@@ -97,7 +97,7 @@ BreakKiller.TextWrapped = true
 
 -- Scripts:
 
-local function FBURQ_fake_script() -- Holder.Script 
+local function EYHHLOC_fake_script() -- Holder.Script 
 	local script = Instance.new('Script', Holder)
 
 	local UIS = game:GetService("UserInputService")
@@ -134,8 +134,8 @@ local function FBURQ_fake_script() -- Holder.Script
 		end
 	end)
 end
-coroutine.wrap(FBURQ_fake_script)()
-local function NFUTM_fake_script() -- BlindKillerButton.Script 
+coroutine.wrap(EYHHLOC_fake_script)()
+local function JEKYQIS_fake_script() -- BlindKillerButton.Script 
 	local script = Instance.new('Script', BlindKillerButton)
 
 	local Players = game:GetService("Players")
@@ -175,8 +175,8 @@ local function NFUTM_fake_script() -- BlindKillerButton.Script
 		plr.Backpack.Scripts.GlobalSurvivor.Action.UseItem.Flashlight.Flashlight:FireServer(unpack(args))
 	end)
 end
-coroutine.wrap(NFUTM_fake_script)()
-local function DBOZSB_fake_script() -- ForceWiggleButton.Script 
+coroutine.wrap(JEKYQIS_fake_script)()
+local function OWVLK_fake_script() -- ForceWiggleButton.Script 
 	local script = Instance.new('Script', ForceWiggleButton)
 
 	local Players = game:GetService("Players")
@@ -217,8 +217,8 @@ local function DBOZSB_fake_script() -- ForceWiggleButton.Script
 		until count >= 200
 	end)
 end
-coroutine.wrap(DBOZSB_fake_script)()
-local function MOFSL_fake_script() -- UnhookAll.Script 
+coroutine.wrap(OWVLK_fake_script)()
+local function RFHXMDZ_fake_script() -- UnhookAll.Script 
 	local script = Instance.new('Script', UnhookAll)
 
 	local function UnhookEvent(Plr, Hook)
@@ -242,8 +242,8 @@ local function MOFSL_fake_script() -- UnhookAll.Script
 		end
 	end)
 end
-coroutine.wrap(MOFSL_fake_script)()
-local function HMSUU_fake_script() -- BreakKiller.Script 
+coroutine.wrap(RFHXMDZ_fake_script)()
+local function QJTRCFX_fake_script() -- BreakKiller.Script 
 	local script = Instance.new('Script', BreakKiller)
 
 	local Killer = nil
@@ -350,13 +350,13 @@ local function HMSUU_fake_script() -- BreakKiller.Script
 		SetKiller()
 		one()
 		two()
-		task.wait(4)
+		task.wait(6)
 		three()
 		eh()
-	end)
+	end
 end
-coroutine.wrap(HMSUU_fake_script)()
-local function ZMGY_fake_script() -- Background.Heal Thingy 
+coroutine.wrap(QJTRCFX_fake_script)()
+local function CWRH_fake_script() -- Background.Heal Thingy 
 	local script = Instance.new('Script', Background)
 
 	local function ProgressRemote(player)
@@ -454,16 +454,16 @@ local function ZMGY_fake_script() -- Background.Heal Thingy
 		end
 	end)
 end
-coroutine.wrap(ZMGY_fake_script)()
-local function IAMKCP_fake_script() -- DBR.Script 
+coroutine.wrap(CWRH_fake_script)()
+local function JWQRX_fake_script() -- DBR.Script 
 	local script = Instance.new('Script', DBR)
 
 	local UIS = game:GetService("UserInputService")
 	
-	UIS.InputBegan:Connect(function(key)
-		if key.KeyCode == Enum.KeyCode.P then
+	UIS.InputBegan:Connect(function(key, gp)
+		if key.KeyCode == Enum.KeyCode.P and gp then
 			script.Parent.Enabled = not script.Parent.Enabled
 		end
 	end)
 end
-coroutine.wrap(IAMKCP_fake_script)()
+coroutine.wrap(JWQRX_fake_script)()
