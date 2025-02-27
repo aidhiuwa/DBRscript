@@ -97,7 +97,7 @@ BreakKiller.TextWrapped = true
 
 -- Scripts:
 
-local function GMFRN_fake_script() -- Holder.Script 
+local function ULHVNM_fake_script() -- Holder.Script 
 	local script = Instance.new('Script', Holder)
 
 	local UIS = game:GetService("UserInputService")
@@ -134,8 +134,8 @@ local function GMFRN_fake_script() -- Holder.Script
 		end
 	end)
 end
-coroutine.wrap(GMFRN_fake_script)()
-local function WQRRQG_fake_script() -- BlindKillerButton.Script 
+coroutine.wrap(ULHVNM_fake_script)()
+local function SWYYBMH_fake_script() -- BlindKillerButton.Script 
 	local script = Instance.new('Script', BlindKillerButton)
 
 	local Players = game:GetService("Players")
@@ -175,8 +175,8 @@ local function WQRRQG_fake_script() -- BlindKillerButton.Script
 		plr.Backpack.Scripts.GlobalSurvivor.Action.UseItem.Flashlight.Flashlight:FireServer(unpack(args))
 	end)
 end
-coroutine.wrap(WQRRQG_fake_script)()
-local function DVHF_fake_script() -- ForceWiggleButton.Script 
+coroutine.wrap(SWYYBMH_fake_script)()
+local function YWJCSA_fake_script() -- ForceWiggleButton.Script 
 	local script = Instance.new('Script', ForceWiggleButton)
 
 	local Players = game:GetService("Players")
@@ -217,8 +217,8 @@ local function DVHF_fake_script() -- ForceWiggleButton.Script
 		until count >= 200
 	end)
 end
-coroutine.wrap(DVHF_fake_script)()
-local function PWVJQ_fake_script() -- UnhookAll.Script 
+coroutine.wrap(YWJCSA_fake_script)()
+local function SISBP_fake_script() -- UnhookAll.Script 
 	local script = Instance.new('Script', UnhookAll)
 
 	local function UnhookEvent(Plr, Hook)
@@ -242,11 +242,13 @@ local function PWVJQ_fake_script() -- UnhookAll.Script
 		end
 	end)
 end
-coroutine.wrap(PWVJQ_fake_script)()
-local function JQTVK_fake_script() -- BreakKiller.Script 
+coroutine.wrap(SISBP_fake_script)()
+local function SIIE_fake_script() -- BreakKiller.Script 
 	local script = Instance.new('Script', BreakKiller)
 
 	local Killer = nil
+	
+	local Broken = false
 	
 	local function SetKiller()
 		for _, plr in pairs(game.Players:GetPlayers()) do
@@ -348,15 +350,22 @@ local function JQTVK_fake_script() -- BreakKiller.Script
 	
 	script.Parent.MouseButton1Click:Connect(function()
 		SetKiller()
-		one()
-		two()
-		task.wait(6)
-		three()
-		eh()
+		task.wait(1)
+		
+		Broken = not Broken
+		if Broken then
+			script.Parent.Text = "Unbreak Killer"
+			one()
+			two()
+		else
+			script.Parent.Text = "Break Killer"
+			three()
+			eh()
+		end
 	end)
 end
-coroutine.wrap(JQTVK_fake_script)()
-local function JCYQDCO_fake_script() -- Background.Heal Thingy 
+coroutine.wrap(SIIE_fake_script)()
+local function AVZD_fake_script() -- Background.Heal Thingy 
 	local script = Instance.new('Script', Background)
 
 	local function ProgressRemote(player)
@@ -454,16 +463,16 @@ local function JCYQDCO_fake_script() -- Background.Heal Thingy
 		end
 	end)
 end
-coroutine.wrap(JCYQDCO_fake_script)()
-local function FWXV_fake_script() -- DBR.Script 
+coroutine.wrap(AVZD_fake_script)()
+local function FTKQCY_fake_script() -- DBR.Script 
 	local script = Instance.new('Script', DBR)
 
 	local UIS = game:GetService("UserInputService")
 	
-	UIS.InputBegan:Connect(function(key, gp)
-		if key.KeyCode == Enum.KeyCode.P and gp then
+	UIS.InputBegan:Connect(function(key)
+		if key.KeyCode == Enum.KeyCode.P then
 			script.Parent.Enabled = not script.Parent.Enabled
 		end
 	end)
 end
-coroutine.wrap(FWXV_fake_script)()
+coroutine.wrap(FTKQCY_fake_script)()
