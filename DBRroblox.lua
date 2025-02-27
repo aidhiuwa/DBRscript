@@ -10,6 +10,7 @@ local UIGridLayout = Instance.new("UIGridLayout")
 local BlindKillerButton = Instance.new("TextButton")
 local ForceWiggleButton = Instance.new("TextButton")
 local UnhookAll = Instance.new("TextButton")
+local BreakKiller = Instance.new("TextButton")
 
 --Properties:
 
@@ -81,9 +82,22 @@ UnhookAll.TextScaled = true
 UnhookAll.TextSize = 14.000
 UnhookAll.TextWrapped = true
 
+BreakKiller.Name = "Break Killer"
+BreakKiller.Parent = Holder
+BreakKiller.BackgroundColor3 = Color3.fromRGB(131, 133, 136)
+BreakKiller.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BreakKiller.BorderSizePixel = 0
+BreakKiller.Size = UDim2.new(0, 200, 0, 50)
+BreakKiller.Font = Enum.Font.SourceSans
+BreakKiller.Text = "Break Killer (4s)"
+BreakKiller.TextColor3 = Color3.fromRGB(1, 46, 85)
+BreakKiller.TextScaled = true
+BreakKiller.TextSize = 14.000
+BreakKiller.TextWrapped = true
+
 -- Scripts:
 
-local function AKZBG_fake_script() -- Holder.Script 
+local function FBURQ_fake_script() -- Holder.Script 
 	local script = Instance.new('Script', Holder)
 
 	local UIS = game:GetService("UserInputService")
@@ -120,8 +134,8 @@ local function AKZBG_fake_script() -- Holder.Script
 		end
 	end)
 end
-coroutine.wrap(AKZBG_fake_script)()
-local function ZITN_fake_script() -- BlindKillerButton.Script 
+coroutine.wrap(FBURQ_fake_script)()
+local function NFUTM_fake_script() -- BlindKillerButton.Script 
 	local script = Instance.new('Script', BlindKillerButton)
 
 	local Players = game:GetService("Players")
@@ -161,8 +175,8 @@ local function ZITN_fake_script() -- BlindKillerButton.Script
 		plr.Backpack.Scripts.GlobalSurvivor.Action.UseItem.Flashlight.Flashlight:FireServer(unpack(args))
 	end)
 end
-coroutine.wrap(ZITN_fake_script)()
-local function HRJAIXO_fake_script() -- ForceWiggleButton.Script 
+coroutine.wrap(NFUTM_fake_script)()
+local function DBOZSB_fake_script() -- ForceWiggleButton.Script 
 	local script = Instance.new('Script', ForceWiggleButton)
 
 	local Players = game:GetService("Players")
@@ -203,8 +217,8 @@ local function HRJAIXO_fake_script() -- ForceWiggleButton.Script
 		until count >= 200
 	end)
 end
-coroutine.wrap(HRJAIXO_fake_script)()
-local function LUBHI_fake_script() -- UnhookAll.Script 
+coroutine.wrap(DBOZSB_fake_script)()
+local function MOFSL_fake_script() -- UnhookAll.Script 
 	local script = Instance.new('Script', UnhookAll)
 
 	local function UnhookEvent(Plr, Hook)
@@ -228,8 +242,121 @@ local function LUBHI_fake_script() -- UnhookAll.Script
 		end
 	end)
 end
-coroutine.wrap(LUBHI_fake_script)()
-local function DLBJTG_fake_script() -- Background.Heal Thingy 
+coroutine.wrap(MOFSL_fake_script)()
+local function HMSUU_fake_script() -- BreakKiller.Script 
+	local script = Instance.new('Script', BreakKiller)
+
+	local Killer = nil
+	
+	local function SetKiller()
+		for _, plr in pairs(game.Players:GetPlayers()) do
+			if plr.Backpack.Scripts.Killer.Value == true then
+				Killer = plr
+				break
+			end
+		end
+	end
+	
+	local function one()
+		local args = {
+			[1] = {
+				["D9v8"] = {
+					["C21"] = Killer.Backpack.Scripts.values.KillerAction,
+					["C20"] = "Stun",
+					["C22"] = "S101"
+				},
+				["Bbh1O"] = {} --[[DUPLICATE]],
+				["Dvh1O"] = {} --[[DUPLICATE]],
+				["Dbh1O"] = {} --[[DUPLICATE]],
+				["Dhv8"] = {} --[[DUPLICATE]]
+			}
+		}
+	
+		args[1].Bbh1O = args[1].D9v8
+		args[1].Dvh1O = args[1].D9v8
+		args[1].Dbh1O = args[1].D9v8
+		args[1].Dhv8 = args[1].D9v8
+		game:GetService("ReplicatedStorage"):FindFirstChild("RemoteEvents"):FindFirstChild("NewPropertie"):FireServer(unpack(args))
+	end
+	
+	local function two()
+		local args = {
+			[1] = {
+				["D9v8"] = {
+					["C21"] = Killer.Backpack.Scripts.values.Stunned.Kind,
+					["C20"] = "Normal",
+					["C22"] = "S101"
+				},
+				["Bbh1O"] = {} --[[DUPLICATE]],
+				["Dvh1O"] = {} --[[DUPLICATE]],
+				["Dbh1O"] = {} --[[DUPLICATE]],
+				["Dhv8"] = {} --[[DUPLICATE]]
+			}
+		}
+	
+		args[1].Bbh1O = args[1].D9v8
+		args[1].Dvh1O = args[1].D9v8
+		args[1].Dbh1O = args[1].D9v8
+		args[1].Dhv8 = args[1].D9v8
+		game:GetService("ReplicatedStorage"):FindFirstChild("RemoteEvents"):FindFirstChild("NewPropertie"):FireServer(unpack(args))
+	end
+	-- Killer.Backpack.Scripts.values.KillerAction,
+	local function eh()
+		local args = {
+			[1] = {
+				["D9v8"] = {
+					["C21"] = Killer.Backpack.Scripts.values.KillerAction,
+					["C20"] = "Nothing",
+					["C22"] = "S101"
+				},
+				["Bbh1O"] = {} --[[DUPLICATE]],
+				["Dvh1O"] = {} --[[DUPLICATE]],
+				["Dbh1O"] = {} --[[DUPLICATE]],
+				["Dhv8"] = {} --[[DUPLICATE]]
+			}
+		}
+	
+		args[1].Bbh1O = args[1].D9v8
+		args[1].Dvh1O = args[1].D9v8
+		args[1].Dbh1O = args[1].D9v8
+		args[1].Dhv8 = args[1].D9v8
+		game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("NewPropertie"):FireServer(unpack(args))
+	end
+	
+	local function three()
+		local args = {
+			[1] = {
+				["D9v8"] = {
+					["C21"] = Killer.Backpack.Scripts.values.Stunned,
+					["C20"] = false,
+					["C22"] = "B101"
+				},
+				["Bbh1O"] = {} --[[DUPLICATE]],
+				["Dvh1O"] = {} --[[DUPLICATE]],
+				["Dbh1O"] = {} --[[DUPLICATE]],
+				["Dhv8"] = {} --[[DUPLICATE]]
+			}
+		}
+	
+		args[1].Bbh1O = args[1].D9v8
+		args[1].Dvh1O = args[1].D9v8
+		args[1].Dbh1O = args[1].D9v8
+		args[1].Dhv8 = args[1].D9v8
+	
+		game:GetService("ReplicatedStorage"):FindFirstChild("RemoteEvents"):FindFirstChild("NewPropertie"):FireServer(unpack(args))
+	end
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		SetKiller()
+		one()
+		two()
+		task.wait(4)
+		three()
+		eh()
+	end)
+end
+coroutine.wrap(HMSUU_fake_script)()
+local function ZMGY_fake_script() -- Background.Heal Thingy 
 	local script = Instance.new('Script', Background)
 
 	local function ProgressRemote(player)
@@ -327,8 +454,8 @@ local function DLBJTG_fake_script() -- Background.Heal Thingy
 		end
 	end)
 end
-coroutine.wrap(DLBJTG_fake_script)()
-local function CLVIQUQ_fake_script() -- DBR.Script 
+coroutine.wrap(ZMGY_fake_script)()
+local function IAMKCP_fake_script() -- DBR.Script 
 	local script = Instance.new('Script', DBR)
 
 	local UIS = game:GetService("UserInputService")
@@ -339,4 +466,4 @@ local function CLVIQUQ_fake_script() -- DBR.Script
 		end
 	end)
 end
-coroutine.wrap(CLVIQUQ_fake_script)()
+coroutine.wrap(IAMKCP_fake_script)()
